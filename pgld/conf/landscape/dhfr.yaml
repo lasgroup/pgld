@@ -1,0 +1,11 @@
+name: dhfr
+str_length: 9
+seq_scored: dna
+data_path: ${oc.env:PGLD_DATASETS_DIR}/dhfr.csv
+wild_type: GCGGATCTC
+objectives:
+  DHFR_fitness:
+    threshold: 0.85689032917647
+    invert: false
+    invalid_score: -20.0
+    bo_invalid_score: -20.0

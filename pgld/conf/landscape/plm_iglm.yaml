@@ -1,0 +1,19 @@
+defaults:
+  - _plm_base
+
+name: plm_iglm
+
+# Context loaded from antibody config (default: c05)
+# Override with: landscape.antibody=trastuzumab
+
+models:
+  IgLM:
+    invalid_sequence_score: -200
+    args:
+      device: cuda
+      use_infill: true  # true = P(var | left, right), false = P(var, right | left)
+
+objectives:
+  IgLM:
+    threshold: -27.67
+    invert: false

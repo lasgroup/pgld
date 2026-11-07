@@ -1,0 +1,14 @@
+name: tf_binding
+str_length: 8
+seq_scored: dna
+objectives:
+  SIX6_REF_R1:
+    top_prop: 0.2
+    invert: true
+    invalid_score: 0.0
+    bo_invalid_score: 0.0
+  KLF1_H299Y_R1:
+    top_prop: 0.05
+    invert: false
+    invalid_score: 0.0
+    bo_invalid_score: 0.0

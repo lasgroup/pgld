@@ -1,0 +1,13 @@
+name: mhc_flurry
+str_length: 27
+seq_scored: peptide
+min_peptide_len: 9
+max_peptide_len: 9
+threshold: 
+  - 0.995
+objectives:
+  HLA-A*02:01:
+    threshold: 0.995
+    invert: false
+    invalid_score: 0.0
+    bo_invalid_score: -5.0

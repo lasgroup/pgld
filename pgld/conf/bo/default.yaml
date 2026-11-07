@@ -1,0 +1,18 @@
+# Bayesian Optimization configuration
+# NOTE: These params only have effect when running train_bo.py (BO workflow)
+# They do nothing for regular train.py runs
+
+bo_iters: 5
+generate_per_round: 10000 # how many new data points to generate from our policy per round
+with_replacement: False # when we calculate the reward do we filter out sequences from the previous round, False if yes, True if no
+baseline: null # Options: null | "random" | "rational" | "all"
+baselines_only: false
+landscape_batch_size: 1024 # batch size for BoLandscape oracle predictions
+adaptive_threshold: false # update hit threshold based on oracle predictions each round
+save_samples: false # save sampled sequences and fitness values per round for qualitative analysis
+oracle_training:
+  n_epochs: 200
+  lr: 1e-3
+  batch_size: 64
+  patience: 50
+  n_ensembles: 5 #5

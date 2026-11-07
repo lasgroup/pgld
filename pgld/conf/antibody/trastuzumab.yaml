@@ -1,0 +1,8 @@
+# Trastuzumab (Herceptin) - anti-HER2 antibody
+name: trastuzumab
+left_context: "EVQLVESGGGLVQPGGSLRLSCAASGFNIKDTYIHWVRQAPGKGLEWVARIYPTNGYTRYADSVKGRFTISADTSKNTAYLQMNSLRAEDTAVYYCSR"
+right_context: "WGQGTLVTVSS"
+wild_type_cdrh3: "WGGDGFYAMDY"
+cdrh3_length: 11
+chain: "[HEAVY]"
+species: "[HUMAN]"

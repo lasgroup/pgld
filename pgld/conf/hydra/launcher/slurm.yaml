@@ -1,0 +1,19 @@
+# @package hydra.launcher
+name: ${hydra.job.name}_${policy.name}
+_target_: hydra_plugins.hydra_submitit_launcher.submitit_launcher.SlurmLauncher
+# IMPORTANT: You must replace "your_partition_name" with a real partition name from your cluster.
+# You can find the names by running `sinfo` on your cluster's login node.
+partition: "normal.4h"
+
+# A comment to help you identify your job with `squeue -u <your_username>`
+comment: "Hydra job for policy training"
+
+# Number of nodes to request
+nodes: 1
+gpus_per_node: 0
+cpus_per_task: 1
+mem_gb: 4
+timeout_min: 60
+
+# submitit folder for logs
+submitit_folder: .slurm

@@ -1,0 +1,21 @@
+defaults:
+  - _plm_base
+
+name: plm_linear
+
+# Linear model doesn't use context (explicit empty strings override antibody config)
+
+models:
+  Linear:
+    right_context: ""
+    left_context: ""
+    invalid_sequence_score: -100
+    args:
+      default_token_logprob: -20.0
+      device: cuda
+      seed: 42
+
+objectives:
+  Linear:
+    threshold: -82.5
+    invert: false

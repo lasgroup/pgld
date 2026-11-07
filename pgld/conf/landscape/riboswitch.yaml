@@ -1,0 +1,11 @@
+name: riboswitch
+str_length: 10
+seq_scored: dna
+oracle_batch_size: 1000
+oracle_dir: ${oc.env:PGLD_RIBOSWITCH_ORACLE_DIR}
+objectives:
+  ATP:
+    threshold: 6 # used in the paper 
+    invert: false
+    invalid_score: -1.0
+    bo_invalid_score: -1.0

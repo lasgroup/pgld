@@ -1,0 +1,22 @@
+defaults:
+  - _plm_base
+
+name: plm_esm2
+
+# Context loaded from antibody config (default: c05)
+# ESM2 uses right_context_esm from antibody config
+# Override with: landscape.antibody=trastuzumab
+
+models:
+  ESM2:
+    invalid_sequence_score: -150
+    args:
+      default_token_logprob: -20.0
+      device: cuda
+      model_name: esm2_8m
+      path: ${oc.env:PGLD_ESM2_CKPT_DIR}
+
+objectives:
+  ESM2:
+    threshold: -74.41
+    invert: false

@@ -1,0 +1,7 @@
+# Configuration for the IupacPlusOptimizer
+name: iupac_plus
+num_templates: 1
+num_custom_bottles: 5
+uniform_template_mix: true
+init_iupac_sequence: null
+init_epsilon: null

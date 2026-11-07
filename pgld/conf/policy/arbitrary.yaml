@@ -1,0 +1,6 @@
+# Configuration for the ArbitraryBaseOptimizer
+name: arbitrary
+num_templates: 1
+uniform_template_mix: true
+init_iupac_sequence: null
+init_epsilon: 0.0

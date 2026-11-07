@@ -1,0 +1,23 @@
+# Base config for PLM log-likelihood landscapes
+# Inherited by plm_linear.yaml, plm_esm2.yaml, plm_iglm.yaml
+#
+# The antibody field specifies which conf/antibody/*.yaml to load.
+# This determines: left_context, right_context, cdrh3_length, wild_type_cdrh3
+# Override with: landscape.antibody=trastuzumab
+
+antibody: c05  # Default antibody (determines context and CDR-H3 length)
+
+# These are derived from antibody config in setup.py:
+# - str_length = cdrh3_length * 3
+# - min_peptide_len = cdrh3_length
+# - max_peptide_len = cdrh3_length
+# - wild_type = wild_type_cdrh3
+# - models.*.left_context
+# - models.*.right_context (or right_context_esm for ESM2)
+
+seq_scored: peptide
+oracle_batch_size_per_gpu: 1024  # multiplied by available GPUs at runtime
+
+# Optional: max edit distance from wild_type (null = no limit)
+# Sequences exceeding this get invalid_sequence_score
+max_edit_distance: null

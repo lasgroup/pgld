@@ -1,0 +1,69 @@
+# Main configuration file
+
+defaults:
+  - policy: arbitrary # Default policy type
+  - landscape: mhc_flurry
+  - bo: default
+  - override hydra/launcher: basic
+  # - override /hydra/launcher: submitit_slurm     // commented because running locally
+  - _self_
+seed: 42
+
+# Optional description of the experiment for logging purposes
+notes: null
+
+# policy training
+training:
+  optimization:
+    iters: 2000
+    lr: 0.02
+    ema_alpha: 0.9
+
+  sampling:
+    batch_size: 128
+    mc_samples: 1
+
+  entropy:
+    lambda_: 0.0
+    type: "exact" # Options: "exact" | "gradient_estimate" | "marginal_gain"
+    sequence_type: "dna" # Options: "dna" | "peptide"
+    baseline_per_template: false
+    n_templates: ${policy.num_templates} # lowest n templates used for entropy; only if num_templates > 1 and type == "exact"
+
+  pooling:
+    enabled: false
+    gpu_accelerated: false
+    queries_per_batch: null
+    uniqueness: "dna" # Options: "dna" | "peptide"
+
+  evaluation:
+    extra_eval: false
+    eval_threshold: null
+    eval_batch_size: 100000
+    checkpointing: true
+    verbose: true
+    timing: false
+    eval_only_at_end: false
+    steps_til_vis: null  # null = only at end, integer = every N steps
+
+  reward_type: "hits" # Options: "hits" | "average" | "unique_hits" | "unique_mean"
+  reward_aggregation_unit: "batch" # Options: "batch" | "template"
+  per_sequence_rewards: false
+  unique_hits_approx: "exp" # Options: "exp" | "pade"
+
+# Hydra settings for output directory
+hydra:
+  run:
+    dir: outputs/${now:%Y-%m-%d}/${now:%H-%M-%S}_${policy.name}
+  # Add this to control the multirun root directory
+  sweep:
+    dir: outputs/${now:%Y-%m-%d}/${now:%H-%M-%S}_${policy.name}_sweep
+
+    
+vis:
+  vis_dir: vis
+
+# Number of uniform random sequences to sample for MC histogram if landscape is not enumerable
+nnk_mc_samples: 1000
+
+

@@ -1,0 +1,13 @@
+
+# Configuration for the IupacBaseOptimizer
+name: iupac
+num_templates: 1
+uniform_template_mix: true
+
+# Single-sequence init (all templates get same IUPAC sequence)
+init_iupac_sequence: null
+init_epsilon: null
+
+# Multi-template FASTA init (each template gets different AA sequence)
+init_fasta_path: null      # path to FASTA with AA sequences
+init_fasta_seed: null      # optional seed for reproducibility
